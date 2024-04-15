@@ -1,9 +1,78 @@
-<mxfile host="app.diagrams.net" modified="2024-04-15T11:20:26.092Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" version="24.2.5" etag="MHdlHZ2OuMNnJ5PBSzon" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-15T11:21:03.563Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="IPcj_bvrNBk5TQlkIjUB" version="24.2.5" type="github">
   <diagram name="Page-1" id="Vs0a-3-qaJJfj9Yrm1Nl">
-    <mxGraphModel>
+    <mxGraphModel dx="3000" dy="1514" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="LGaAymlH0xSVArma3rTM-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="50" width="350" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-2" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="490" y="350" width="205" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-3" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="LGaAymlH0xSVArma3rTM-2">
+          <mxGeometry width="205" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-4" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Assignments&lt;/h1&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;_id&lt;/span&gt;&lt;br&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;nom&lt;/span&gt;&lt;br&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;dateDeRendu&lt;/span&gt;&lt;br&gt;&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;rendu&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;note&lt;/span&gt;&lt;div&gt;auteur&lt;/div&gt;&lt;div&gt;matiere&lt;br&gt;&lt;div&gt;&lt;div&gt;remarque&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="LGaAymlH0xSVArma3rTM-2">
+          <mxGeometry x="16" y="5" width="180" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-5" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;Assignment App MongoDB&lt;/b&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="233" y="45" width="361" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-6" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="100" y="367.5" width="170" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-7" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;User&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="367.5" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-8" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="230" y="630" width="222.5" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-9" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="LGaAymlH0xSVArma3rTM-8">
+          <mxGeometry width="170" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-10" value="nom&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;&lt;div&gt;image&lt;br&gt;&lt;/div&gt;&lt;div&gt;prof_img&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="LGaAymlH0xSVArma3rTM-8">
+          <mxGeometry x="20" y="60" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-11" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Matiere&lt;/h1&gt;&lt;p&gt;.&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="LGaAymlH0xSVArma3rTM-8">
+          <mxGeometry x="42.5" y="10" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-12" value="_id" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="LGaAymlH0xSVArma3rTM-8">
+          <mxGeometry x="3" y="60" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-13" value="Nom_prof" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="LGaAymlH0xSVArma3rTM-8">
+          <mxGeometry x="20" y="140" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-14" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="LGaAymlH0xSVArma3rTM-4" target="LGaAymlH0xSVArma3rTM-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="400" as="sourcePoint" />
+            <mxPoint x="270" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="20" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-15" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="90" y="397.5" width="87.5" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-16" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;nom&lt;/span&gt;&lt;br&gt;&lt;div&gt;image&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="LGaAymlH0xSVArma3rTM-15">
+          <mxGeometry x="20" y="2.5" width="67.5" height="67.5" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-17" value="email&lt;div&gt;password&lt;/div&gt;&lt;div&gt;isAdmin&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="LGaAymlH0xSVArma3rTM-15">
+          <mxGeometry x="20" y="80" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-18" value="_id" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="LGaAymlH0xSVArma3rTM-15">
+          <mxGeometry width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LGaAymlH0xSVArma3rTM-19" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=-0.013;exitY=0.68;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.05;entryY=0.644;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="LGaAymlH0xSVArma3rTM-4" target="LGaAymlH0xSVArma3rTM-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="220" as="sourcePoint" />
+            <mxPoint x="170" y="170" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="330" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
