@@ -18,6 +18,7 @@ let MatiereSchema = Schema({
 let AssignmentSchema = Schema({
     id: Number,
     dateDeRendu: Date,
+    dateDeCreation: Date,
     nom: String,
     rendu: Boolean,
     note: Number,
