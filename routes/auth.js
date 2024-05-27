@@ -25,19 +25,28 @@ const login = async (req, res) => {
     const password = req.body.password;
 
     console.log(req.body);
-    
-    const user = await User.findOne({ email});
+
+    const user = await User.findOne({ email });
     if (user == null) {
-        return res.status(401).send({message: MESSAGE});
+        return res.status(401).send({ message: MESSAGE });
     }
 
     const match = await bcrypt.compare(password, user.password);
-    if(!match){
-        return res.status(401).send({message: MESSAGE});
+    if (!match) {
+        return res.status(401).send({ message: MESSAGE });
     }
 
     const token = jwt.sign({ email: email }, secretKey);
-    res.json({ token: token });
+    const response = {
+        token,
+        user: {
+            nom: user.nom,
+            image: user.image,
+            email: user.email,
+            isAdmin: user.isAdmin,
+        }
+    };
+    res.json(response);
 }
 
 module.exports = { checkToken, login };
