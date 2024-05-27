@@ -1,4 +1,8 @@
 let Assignment = require('../model/assignment');
+const User = require('../model/user');
+const Matiere = require('../model/matiere');
+
+const mongoose = require('mongoose');
 
 // Récupérer tous les assignments (GET)
 /*
@@ -13,30 +17,31 @@ function getAssignments(req, res){
 }
 */
 
-function getAssignments(req, res){
-    let aggregateQuery = Assignment.aggregate();
+function getAssignments(req, res) {
+    const aggregateQuery = Assignment.aggregate();
 
     Assignment.aggregatePaginate(
-        aggregateQuery, 
+        aggregateQuery,
         {
             page: parseInt(req.query.page) || 1,
-            limit: parseInt(req.query.limit) || 10
+            limit: parseInt(req.query.limit) || 10,
+            sort: { dateDeCreation: -1 },
         },
         (err, data) => {
-            if(err){
+            if (err) {
                 res.send(err)
             }
-    
+
             res.send(data);
         }
     );
 }
 
 // Récupérer un assignment par son id (GET)
-function getAssignment(req, res){
+function getAssignment(req, res) {
     let assignmentId = req.params.id;
-    Assignment.findById(assignmentId, (err, assignment) =>{
-        if(err){res.send(err)}
+    Assignment.findById(assignmentId, (err, assignment) => {
+        if (err) { res.send(err) }
         res.json(assignment);
     })
 
@@ -49,42 +54,85 @@ function getAssignment(req, res){
 }
 
 // Ajout d'un assignment (POST)
-function postAssignment(req, res){
-    let assignment = new Assignment();
-    assignment.id = req.body.id;
-    assignment.dateDeRendu = req.body.dateDeRendu;
-    assignment.nom = req.body.nom;
-    assignment.rendu = req.body.rendu;
-    assignment.note = req.body.note;
-    assignment.auteur = req.body.auteur;
-    assignment.matiere = req.body.matiere;
-    assignment.remarque = req.body.remarque;
+async function postAssignment(req, res) {
+    try {
+        const token = {
+            _id: mongoose.Types.ObjectId('66223b9233fdb80bb8e3171f').toString(),
+            isAdmin: true,
+        };
 
-    console.log('body', req.body);
-    console.log("POST assignment reçu :");
-    console.log(assignment)
-
-    assignment.save( (err) => {
-        if(err){
-            res.send('cant post assignment ', err);
+        if (!req.body.matiere || !req.body.matiere._id) {
+            return res.status(500).json({ message: 'Missing field required : Matiere ' });
         }
-        res.json({ message: `${assignment.nom} saved!`})
-    })
+
+        let assignment = new Assignment();
+        assignment.id = req.body.id;
+        assignment.dateDeRendu = req.body.dateDeRendu;
+        assignment.nom = req.body.nom;
+        assignment.rendu = req.body.rendu;
+        assignment.note = req.body.note;
+        assignment.remarque = req.body.remarque;
+        assignment.dateDeCreation = new Date();
+
+        if (token.isAdmin) {
+            assignment.auteur = req.body.auteur;
+            assignment.matiere = req.body.matiere;
+        }
+
+        if (!assignment.auteur?.nom) {
+            const user = await User.findById(token._id);
+            if (!user)
+                return res.status(500).json({ message: "Can't find the auteur for the new assignment" });
+
+            assignment.auteur = {
+                _id: user._id,
+                nom: user.nom,
+                image: user.image,
+            };
+        }
+
+        if (!assignment.matiere?.nom) {
+            const matiere = await Matiere.findById(req.body.matiere._id);
+            if (!matiere)
+                return res.status(500).json({ message: "Can't find the matiere for the new assignment" });
+
+            assignment.matiere = {
+                _id: matiere._id,
+                nom: matiere.nom,
+                image: matiere.image,
+                prof_img: matiere.prof_img,
+            };
+        }
+
+        console.log('body', req.body);
+        console.log("POST assignment reçu :");
+        console.log(assignment)
+
+        assignment.save((err, savedAssignment) => {
+            if (err) {
+                return res.send('cant post assignment ', err);
+            }
+            return res.json(savedAssignment)
+        })
+    } catch (e) {
+        console.error(e);
+        return res.status(500).json(e);
+    }
 }
 
 // Update d'un assignment (PUT)
 function updateAssignment(req, res) {
     console.log("UPDATE recu assignment : ");
     console.log(req.body);
-    Assignment.findByIdAndUpdate(req.body._id, req.body, {new: true}, (err, assignment) => {
+    Assignment.findByIdAndUpdate(req.body._id, req.body, { new: true }, (err, assignment) => {
         if (err) {
             console.log(err);
             res.send(err)
         } else {
-          res.json({message: 'updated'})
+            res.json({ message: 'updated' })
         }
 
-      // console.log('updated ', assignment)
+        // console.log('updated ', assignment)
     });
 
 }
@@ -97,7 +145,7 @@ function deleteAssignment(req, res) {
         if (err) {
             res.send(err);
         }
-        res.json({message: `${assignment.nom} deleted`});
+        res.json({ message: `${assignment.nom} deleted` });
     })
 }
 
