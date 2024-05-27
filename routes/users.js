@@ -27,13 +27,15 @@ function getUser(req, res) {
     })
 }
 
-function postUser(req, res) {
+async function postUser(req, res) {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10); 
+    
     let user = new User();
     user.id = req.body.id;
     user.nom = req.body.nom;
     user.image = req.body.image;
     user.email = req.body.email;
-    user.password = req.body.password;
+    user.password = hashedPassword;
     user.isAdmin = req.body.isAdmin;
 
     console.log("POST user reçu :");
