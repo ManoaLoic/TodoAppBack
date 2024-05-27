@@ -1,8 +1,6 @@
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 
 let assignment = require('./routes/assignments');
 let user = require('./routes/users');
@@ -12,8 +10,6 @@ let mongoose = require('mongoose');
 const { checkToken, login } = require('./routes/auth');
 mongoose.Promise = global.Promise;
 // mongoose.set('debug', true);
-
-const secretKey = 'your_secret_key_here';
 
 // remplacer toute cette chaine par l'URI de connexion à votre propre base dans le cloud s
 const uri = 'mongodb+srv://loic:loic1234@cluster0.vwkhc.mongodb.net/assignments?retryWrites=true&w=majority&appName=Cluster0';
@@ -51,7 +47,7 @@ let port = process.env.PORT || 8010;
 // les routes
 const prefix = '/api';
 
-app.post('/login', login);
+app.post(`${prefix}/auth`, login);
 
 app.use(checkToken);
 
