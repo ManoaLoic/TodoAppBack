@@ -18,7 +18,15 @@ function getAssignments(req, res){
 */
 
 function getAssignments(req, res) {
-    const aggregateQuery = Assignment.aggregate();
+    const filterCriteria = {};
+    const { rendu } = req.query;
+    if (rendu) {
+        filterCriteria.rendu = rendu == 'true' ? true : false;
+    }
+
+    const aggregateQuery = Assignment.aggregate([
+        { $match: filterCriteria }
+    ]);
 
     Assignment.aggregatePaginate(
         aggregateQuery,
