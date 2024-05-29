@@ -1,4 +1,5 @@
 let User = require('../model/user');
+const bcrypt = require('bcrypt');
 
 function getUsers(req, res) {
     let aggregateQuery = User.aggregate();
