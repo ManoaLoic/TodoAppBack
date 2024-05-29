@@ -40,6 +40,7 @@ const login = async (req, res) => {
     const response = {
         token,
         user: {
+            _id: user._id,
             nom: user.nom,
             image: user.image,
             email: user.email,
