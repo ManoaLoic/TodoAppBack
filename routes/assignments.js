@@ -3,6 +3,7 @@ const User = require('../model/user');
 const Matiere = require('../model/matiere');
 
 const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Types;
 
 // Récupérer tous les assignments (GET)
 /*
@@ -48,7 +49,8 @@ function getAssignments(req, res) {
 // Récupérer un assignment par son id (GET)
 function getAssignment(req, res) {
     let assignmentId = req.params.id;
-    Assignment.findById(assignmentId, (err, assignment) => {
+    console.log('Id', assignmentId);
+    Assignment.findById(ObjectId(assignmentId), (err, assignment) => {
         if (err) { res.send(err) }
         res.json(assignment);
     })
@@ -130,14 +132,15 @@ async function postAssignment(req, res) {
 
 // Update d'un assignment (PUT)
 function updateAssignment(req, res) {
-    console.log("UPDATE recu assignment : ");
-    console.log(req.body);
+    if(req.body.note || req.body.note == 0){
+        req.body.rendu = true;
+    }
     Assignment.findByIdAndUpdate(req.body._id, req.body, { new: true }, (err, assignment) => {
         if (err) {
             console.log(err);
             res.send(err)
         } else {
-            res.json({ message: 'updated' })
+            res.json(assignment)
         }
 
         // console.log('updated ', assignment)

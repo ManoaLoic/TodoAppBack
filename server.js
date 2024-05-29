@@ -53,7 +53,7 @@ const prefix = '/api';
 
 app.post('/login', login);
 
-app.use(checkToken);
+// app.use(checkToken);
 
 // http://serveur..../assignments
 app.route(prefix + '/assignments')
