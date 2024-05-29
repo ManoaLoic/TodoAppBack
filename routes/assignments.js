@@ -20,10 +20,21 @@ function getAssignments(req, res){
 
 function getAssignments(req, res) {
     const filterCriteria = {};
-    const { rendu } = req.query;
+    const { rendu, q } = req.query;
     if (rendu) {
         filterCriteria.rendu = rendu == 'true' ? true : false;
     }
+
+    if (q) {
+        filterCriteria.nom = { $regex: `^${q}`, $options: 'i' };
+    }
+
+    if (!req.user.isAdmin) {
+        filterCriteria['auteur._id'] = req.user._id;
+    }
+
+    console.log(req.user);
+    console.log(filterCriteria);
 
     const aggregateQuery = Assignment.aggregate([
         { $match: filterCriteria }
