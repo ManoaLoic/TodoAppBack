@@ -24,12 +24,6 @@ ng serve
 ```
 - L'application frontend est maintenant lancée : [http://localhost:4200](http://localhost:4200) :tada:
 
-# Informations utiles
-Pour vous connecter, vous pouvez voir ci-dessous la liste des creditentials
-- Voici de quoi vous connecter en tant qu'étudiant : [Creditentials etudiants](https://github.com/FranckieAndria/m2-mbds-angular-front/tree/master/creditentials/etudiant.md)
-- Si vous souhaitez vous connecter en tant que professeur : [Creditentials professeurs](https://github.com/FranckieAndria/m2-mbds-angular-front/tree/master/creditentials/professeur.md)
-- Et utilisez ces uniques accès en tant qu'administrateur : [Creditential administrateur](https://github.com/FranckieAndria/m2-mbds-angular-front/tree/master/creditentials/administrateur.md) <br>
-
 # Informations de Connexion
 
 ## Admin
