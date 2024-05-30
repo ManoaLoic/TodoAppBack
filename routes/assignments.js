@@ -62,6 +62,11 @@ function getAssignmentsCount(req, res) {
 
     Assignment.aggregate([
         {
+            $match: {
+                "auteur._id": user._id
+            }
+        },
+        {
             $group: {
                 _id: "$rendu",
                 count: { $sum: 1 }
