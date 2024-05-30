@@ -54,6 +54,10 @@ app.post(`${prefix}/auth`, login);
 
 app.use(checkToken);
 
+// Route pour récupérer le nombre total des devoirs à faire
+app.route(`${prefix}/assignments/count`).get( assignment.getAssignmentsCount);
+
+
 // http://serveur..../assignments
 app.route(prefix + '/assignments')
   .post(assignment.postAssignment)

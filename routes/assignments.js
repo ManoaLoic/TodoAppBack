@@ -46,6 +46,32 @@ function getAssignments(req, res) {
     );
 }
 
+function getAssignmentsCount(req, res) {
+    const user = req.user;
+
+    Assignment.aggregate([
+        {
+            $group: {
+                _id: "$rendu",
+                count: { $sum: 1 }
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                rendu: "$_id",
+                count: 1
+            }
+        }
+    ], (err, result) => {
+        if (err) {
+            res.status(500).json({ message: 'Erreur lors de la récupération du nombre total des devoirs à faire.' });
+        } else {
+            res.status(200).json({ result: result });
+        }
+    });
+}
+
 // Récupérer un assignment par son id (GET)
 function getAssignment(req, res) {
     let assignmentId = req.params.id;
@@ -132,7 +158,7 @@ async function postAssignment(req, res) {
 
 // Update d'un assignment (PUT)
 function updateAssignment(req, res) {
-    if(req.body.note || req.body.note == 0){
+    if (req.body.note || req.body.note == 0) {
         req.body.rendu = true;
     }
     Assignment.findByIdAndUpdate(req.body._id, req.body, { new: true }, (err, assignment) => {
@@ -162,4 +188,4 @@ function deleteAssignment(req, res) {
 
 
 
-module.exports = { getAssignments, postAssignment, getAssignment, updateAssignment, deleteAssignment };
+module.exports = { getAssignments, postAssignment, getAssignment, getAssignmentsCount, updateAssignment, deleteAssignment };
