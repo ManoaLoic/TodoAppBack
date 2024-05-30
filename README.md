@@ -55,6 +55,7 @@ ng serve
 **Liste des assignments**
 - Utilisation `MaterialCard` pour la liste des assignments dans le scroll infini
 - Création de 2 tabs pour les assignments rendu et non rendu
+- Recherche par le nom
 
 **Gestion assignments**
 - Création Ajout de assignment
