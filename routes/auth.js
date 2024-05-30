@@ -36,7 +36,7 @@ const login = async (req, res) => {
         return res.status(401).send({ message: MESSAGE });
     }
 
-    const token = jwt.sign({ email: email }, secretKey);
+    const token = jwt.sign({ email: email, _id: user._id, isAdmin: user.isAdmin }, secretKey);
     const response = {
         token,
         user: {
