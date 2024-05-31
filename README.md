@@ -62,7 +62,7 @@ ng serve
 - Création Modification Assignment avec utilisation d'un `Stepper`
 - Lorsqu'on met une note à un Assignment, il devient rendu et apparaitra dans l'onglet "Rendu"
 
-## NOMENJANAHARIMANANA JESSICA LOIC N10
+## NOMENJANAHARIMANANA JESSICA N10
 
 **Sécurisation**
 - Sécurisation du backend avec `JWT`
