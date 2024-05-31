@@ -108,8 +108,9 @@ function getAssignment(req, res) {
 // Ajout d'un assignment (POST)
 async function postAssignment(req, res) {
     try {
+        console.log(req.user);
         const token = {
-            _id: mongoose.Types.ObjectId('66223b9233fdb80bb8e3171f').toString(),
+            _id: mongoose.Types.ObjectId(req.user._id).toString(),
             isAdmin: true,
         };
 
