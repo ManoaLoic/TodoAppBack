@@ -51,6 +51,7 @@ let port = process.env.PORT || 8010;
 const prefix = '/api';
 
 app.post(`${prefix}/auth`, login);
+app.post(prefix + '/register', user.register)
 
 app.use(checkToken);
 
