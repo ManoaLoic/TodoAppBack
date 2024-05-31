@@ -60,11 +60,13 @@ function getAssignments(req, res) {
 function getAssignmentsCount(req, res) {
     const user = req.user;
 
-    Assignment.aggregate([
+    const match = user.isAdmin ? {} : {
+        "auteur._id": user._id
+    };
+
+    const config = [
         {
-            $match: {
-                "auteur._id": user._id
-            }
+            $match: match
         },
         {
             $group: {
@@ -79,7 +81,9 @@ function getAssignmentsCount(req, res) {
                 count: 1
             }
         }
-    ], (err, result) => {
+    ];
+
+    Assignment.aggregate(config, (err, result) => {
         if (err) {
             res.status(500).json({ message: 'Erreur lors de la récupération du nombre total des devoirs à faire.' });
         } else {
