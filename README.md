@@ -71,6 +71,7 @@ ng serve
 
 **Gestion d'accès frontEnd**
 - Création page Login
+- Inscription
 - Implémentation des gardiens
 - Se déconnecter
 - Gestion des roles: Seuls les admins peuvent modifier et supprimer les assignments
