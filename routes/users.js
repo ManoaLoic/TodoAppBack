@@ -28,6 +28,28 @@ function getUser(req, res) {
     })
 }
 
+async function register(req, res) {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10); 
+    
+    let user = new User();
+    user.id = req.body.id;
+    user.nom = req.body.nom;
+    user.image = req.body.image;
+    user.email = req.body.email;
+    user.password = hashedPassword;
+    user.isAdmin = false;
+
+    console.log("POST user reçu :");
+    console.log(user)
+
+    user.save((err) => {
+        if (err) {
+            res.send('cant post user ', err);
+        }
+        res.json({ message: `${user.nom} saved!` })
+    })
+}
+
 async function postUser(req, res) {
     const hashedPassword = await bcrypt.hash(req.body.password, 10); 
     
@@ -75,4 +97,4 @@ function deleteUser(req, res) {
 
 
 
-module.exports = { getUsers, postUser, getUser, updateUser, deleteUser };
+module.exports = { getUsers, postUser, getUser, updateUser, deleteUser, register };
